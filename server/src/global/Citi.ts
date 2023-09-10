@@ -19,13 +19,29 @@ type Models = {
   >;
 };
 
-type ModelsWithoutId = {
-  [M in ModelNames]: Omit<Models[M], "id">;
+type ModelCreateInput = {
+  [M in ModelNames]: Parameters<
+    PrismaClient[Uncapitalize<M>]["create"]
+  >[0]["data"];
 };
 
+type ModelUpdateInput = {
+  [M in ModelNames]: Parameters<
+    PrismaClient[Uncapitalize<M>]["update"]
+  >[0]["data"];
+};
+
+/**
+ * Classe que representa um conjunto de operações de banco de dados que podem ser realizadas em uma entidade.
+ */
 export default class Citi<Entity extends ModelNames> {
   constructor(readonly entity: Entity) {}
-
+  /**
+   * Verifica se algum dos elementos fornecidos está indefinido.
+   *
+   * @param {...string[]} elements - Elementos a serem verificados.
+   * @returns {boolean} Retorna verdadeiro se algum dos elementos estiver indefinido, caso contrário, retorna falso.
+   */
   areValuesUndefined(...elements: string[]): boolean {
     const isAnyUndefined = elements.some((element) => {
       return element === undefined;
@@ -33,7 +49,18 @@ export default class Citi<Entity extends ModelNames> {
     return isAnyUndefined;
   }
 
-  async insertIntoDatabase<T extends ModelsWithoutId[Entity]>(
+  /**
+   * @description Insere um objeto no banco de dados.
+   * Não sabe o que inserir? Teste chamando a função com
+   * insertIntoDatabase({}) e
+   * clicando em ctrl+espaço dentro do objeto no parâmetro!
+   * @param {ModelCreateInput[Entity]} object O dado a ser inserido.
+   * @returns {InsertableDatabase} O httpStatus e uma message.
+   * @example
+   * const citi = new Citi("User")
+   * await citi.insertIntoDatabase({firstName: "Mário", lastName: "Mota", age: 20})
+   */
+  async insertIntoDatabase<T extends ModelCreateInput[Entity]>(
     object: T
   ): Promise<InsertableDatabase> {
     try {
@@ -58,12 +85,17 @@ export default class Citi<Entity extends ModelNames> {
     }
   }
 
+  /**
+   * Obtém todos os registros da entidade do banco de dados.
+   *
+   * @returns {Promise<GetableDatabase<Models[Entity]>>} Uma promessa que resolve para um objeto contendo o status HTTP e os valores recuperados.
+   */
   async getAll(): Promise<GetableDatabase<Models[Entity]>> {
     try {
       const values = await prisma[
         this.entity.toLowerCase() as Uncapitalize<Prisma.ModelName>
         //@ts-expect-error
-      ].findMany();
+      ].findMany<Models[Entity]>();
       Terminal.show(Message.GET_ALL_VALUES_FROM_DATABASE);
       return {
         httpStatus: 200,
@@ -78,7 +110,15 @@ export default class Citi<Entity extends ModelNames> {
     }
   }
 
-  async findById(id: string): Promise<FindableDatabaseValue<Models[Entity]>> {
+  /**
+   * Procura um registro por ID na entidade do banco de dados.
+   *
+   * @param {string | number} id - O ID do registro a ser encontrado.
+   * @returns {Promise<FindableDatabaseValue<Models[Entity]>>} Uma promessa que resolve para um objeto contendo o status HTTP e o valor encontrado, se existir.
+   */
+  async findById(
+    id: string | number
+  ): Promise<FindableDatabaseValue<Models[Entity]>> {
     try {
       const value = await prisma[
         this.entity.toLowerCase() as Uncapitalize<Prisma.ModelName>
@@ -102,8 +142,15 @@ export default class Citi<Entity extends ModelNames> {
     }
   }
 
-  async updateValue<T extends Partial<ModelsWithoutId[Entity]>>(
-    id: string,
+  /**
+   * Atualiza um registro na entidade do banco de dados com os valores fornecidos.
+   *
+   * @param {string | number} id - O ID do registro a ser atualizado.
+   * @param {T} object - O objeto contendo os valores a serem atualizados.
+   * @returns {Promise<UpdatableDatabaseValue>} Uma promessa que resolve para um objeto contendo o status HTTP e uma mensagem indicando o resultado da operação de atualização.
+   */
+  async updateValue<T extends ModelUpdateInput[Entity]>(
+    id: string | number,
     object: T
   ): Promise<UpdatableDatabaseValue> {
     try {
@@ -138,7 +185,13 @@ export default class Citi<Entity extends ModelNames> {
     }
   }
 
-  async deleteValue(id: string): Promise<RemoveableDatabase> {
+  /**
+   * Deleta um registro por ID na entidade do banco de dados.
+   *
+   * @param {string | number} id - O ID do registro a ser deletado.
+   * @returns {Promise<RemoveableDatabase>} Uma promessa que resolve para um objeto contendo o status HTTP e uma mensagem indicando o resultado da operação de exclusão.
+   */
+  async deleteValue(id: string | number): Promise<RemoveableDatabase> {
     try {
       await prisma[
         this.entity.toLowerCase() as Uncapitalize<Prisma.ModelName>
