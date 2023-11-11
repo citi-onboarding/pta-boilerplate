@@ -17,7 +17,7 @@ services:
       - db
 
   db:
-    image: postgres
+    image: postgres:16
     container_name: ${PROJECT_NAME}-db
     restart: unless-stopped
     env_file: .env

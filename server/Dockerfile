@@ -1,6 +1,8 @@
-FROM node:18.16
+FROM node:20.9.0-slim
 
-RUN mkdir -p /home/node/app/node_modules
+RUN apt-get update -y && apt-get install -y openssl
+
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 
 WORKDIR /home/node/app
 
@@ -9,6 +11,10 @@ COPY package.json yarn.loc[k] ./
 RUN yarn install 
 
 COPY . .
+
+COPY --chown=node:node . .
+
+USER node
 
 EXPOSE 3001
 

@@ -4,12 +4,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "push": "yarn prisma db push",
+    "push": "npm run prisma db push",
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "build": "swc src --extensions \".js,.ts\" --out-dir dist --copy-files",
-    "start": "yarn build && node dist/server.js",
+    "start": "npm run build && node dist/server.js",
     "generate": "prisma generate",
-    "postinstall": "yarn generate",
+    "postinstall": "npm run generate",
     "studio": "cross-env DATABASE_HOST='localhost' prisma studio"
   },
   "devDependencies": {
