@@ -8,7 +8,9 @@ WORKDIR /home/node/app
 
 COPY package.json yarn.loc[k] ./
 
-RUN yarn install 
+COPY prisma ./prisma
+
+RUN yarn install
 
 COPY . .
 
