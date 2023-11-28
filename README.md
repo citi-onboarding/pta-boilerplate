@@ -350,13 +350,13 @@ Exemplo:
 4. Com o terminal aberto, escreva essa sentença abaixo e dê enter
 
    ```sh
-   yarn start
+   yarn dev
    ```
 
    ou 
 
    ```sh
-   npm run start
+   npm run dev
    ```
 
 3. Espere que o terminal esteja dessa maneira

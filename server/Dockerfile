@@ -8,13 +8,15 @@ WORKDIR /home/node/app
 
 COPY package.json yarn.loc[k] ./
 
-COPY prisma ./prisma
-
 RUN yarn install
 
 COPY . .
 
+RUN yarn generate
+
 COPY --chown=node:node . .
+
+RUN chown -R node:node /home/node/app/node_modules/.prisma
 
 USER node
 
