@@ -149,6 +149,22 @@ Ainda no server, tem uma abstração construída para facilitar o contato de pes
         
     </p>
 
+6. Com este terminal rodando, abra outro terminal, ainda na pasta /server, e rode essa sentença abaixo
+
+   ```sh
+   yarn migration
+   ```
+
+   ou 
+
+   ```sh
+   npm run migration
+   ```
+
+   *OBS. 1: Ao aparecer o campo "Enter a name for the new migration:", digite uma frase rápida que indique o que foi feito (ex.: add model user). A migration é como se fosse o commit do banco de dados.*
+   
+   *OBS. 2: É necessário que esse comando seja rodado a cada vez que você modificar o arquivo `schema.prisma`*
+
 <br/> 
 
 ## Citi Abstraction Documentation
