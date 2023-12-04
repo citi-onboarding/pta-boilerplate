@@ -79,7 +79,14 @@ Ainda no server, tem uma abstração construída para facilitar o contato de pes
 
 <br/>
 
-0. Certifique-se que o node esteja devidamente instalado. 
+0. Certifique-se que o **node** e o **yarn** estejam devidamente instalados. 
+   ```bash
+   npm i -g yarn
+   ```
+   *note: em Windows, talvez você precise rodar esse comando para o pleno funcionamento do yarn:*
+   ```bash
+   Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+   ```
 
 1. Clone o repositório
 
