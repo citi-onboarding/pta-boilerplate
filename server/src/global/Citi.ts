@@ -64,7 +64,6 @@ export default class Citi<Entity extends ModelNames> {
     object: T
   ): Promise<InsertableDatabase> {
     try {
-      console.log(object, this.entity.toLowerCase());
       await prisma[
         this.entity.toLowerCase() as Uncapitalize<Prisma.ModelName>
         //@ts-expect-error
