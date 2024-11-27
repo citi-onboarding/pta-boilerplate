@@ -1,5 +1,5 @@
 import LogoCITi from "./Logo.png";
-import logoBranco from "./logoBranco.png";
+import logoCITiWhite from "./logoCITiWhite.png";
 
 export { LogoCITi };
-export { logoBranco };
+export { logoCITiWhite };
