@@ -11,7 +11,7 @@ export default function Sidebar() {
       <div className="sidebar_UpSide flex flex-col items-center gap-4 py-7">
         <Image src={logoBranco} alt="Logo" className="itens-center w-30 h-auto mb-4"/>
 
-        <Button className="flex items-center justify-start w-56 h-11 px-4 bg-white bg-opacity-40 [&_svg]:size-8">
+        <Button className="flex items-center justify-start w-56 h-11 px-4 bg-white bg-opacity-40 [&_svg]:size-8 hover:bg-white/90 hover:bg-opacity-80">
           <Gamepad2 color="white"/>
           <span className="text-white font-bold text-base font-barlow">Explorar Partidas</span>
         </Button>
