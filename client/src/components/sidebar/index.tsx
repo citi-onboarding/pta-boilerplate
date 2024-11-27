@@ -6,7 +6,7 @@ import { Gamepad2, CircleUserRound } from 'lucide-react';
  
 export default function Sidebar() {
   return (
-    <div className="sidebar flex flex-col h-full items-center justify-between bg-backsidebar w-64">
+    <div className="sidebar flex flex-col h-full items-center justify-between bg-backgroundSidebar w-64">
 
       <div className="sidebar_UpSide flex flex-col items-center gap-4 py-7">
         <Image src={logoCITiWhite} alt="Logo" className="itens-center w-30 h-auto mb-4"/>

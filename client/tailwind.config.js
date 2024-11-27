@@ -24,7 +24,7 @@ module.exports = {
 			},
     		colors: {
     			background: 'hsl(var(--background))',
-				backsidebar: 'hsl(var(--backsidebar))',
+				backgroundSidebar: 'hsl(var(--background-sidebar))',
     			foreground: 'hsl(var(--foreground))',
     			card: {
     				DEFAULT: 'hsl(var(--card))',
