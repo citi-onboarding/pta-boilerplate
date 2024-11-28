@@ -19,7 +19,14 @@ module.exports = {
     			md: 'calc(var(--radius) - 2px)',
     			sm: 'calc(var(--radius) - 4px)'
     		},
+			fontFamily:{
+				barlow: ['Barlow']
+
+			},
+
     		colors: {
+				purple: 'hsl(var(--purple))',
+				darkGray: 'hsl(var(--dark-gray))',
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
     			card: {
