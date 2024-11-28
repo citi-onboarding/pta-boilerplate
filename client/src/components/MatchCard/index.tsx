@@ -12,27 +12,29 @@ import { UsersRound } from 'lucide-react';
 
 export default function MatchCard() {
   return (
-    <Card className="bg-purple font-barlow border w-60 h-28 rounded-2xl">
 
-      <CardHeader>
-        <CardTitle className="size-3.5 font-medium border border-black text-base">Minecraft</CardTitle>
-        <CardDescription className=" size-3.5 border border-black text-darkGray text-base">Discord</CardDescription>
-      </CardHeader>
+    <div className="flex items-center justify-center h-screen">
+      <Card className="shadow-gray-500 shadow bg-purple font-barlow border-none rounded-2xl text-darkGray">
+
+        <CardHeader className="space-y-2 p-4 pb-2">
+          <CardTitle className="text-darkGray font-medium text-sm">Minecraft</CardTitle>
+          <CardDescription className="font-light text-darkGray text-sm">Discord</CardDescription>
+        </CardHeader>
 
 
-      <div className="display-flex gap-12">
-        <CardContent className="font-light">
-          <span className=" size-3.5 border border-black text-base">06/07/2023 | 19h</span>
-        </CardContent>
+        <div className="flex gap-12 p-4 pt-0">
+          <CardContent className="font-light p-0">
+            <span className="text-darkGray flex text-sm">06/07/2023 | 19h</span>
+          </CardContent>
 
-        <CardFooter className="font-light gap-1">
-          <span className=" size-3.5 border border-black text-base">5</span>
-          <UsersRound className="border border-black w-6"/>
-        </CardFooter>
-      
-      </div>
+          <CardFooter className=" flex font-light gap-1 p-0">
+            <span className="font-light text-darkGray text-sm">05</span>
+            <UsersRound className="stroke-darkGray w-5"/>
+          </CardFooter>
+        
+        </div>
 
-    </Card>
-
+      </Card>
+    </div>
   );
 }
