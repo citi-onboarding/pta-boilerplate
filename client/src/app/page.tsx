@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Topbar from "@/components/topbar";
 
 import { LogoCITi } from "../assets";
 
