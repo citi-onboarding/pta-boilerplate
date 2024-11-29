@@ -20,8 +20,9 @@ module.exports = {
     			sm: 'calc(var(--radius) - 4px)'
     		},
     		colors: {
-				verdeciti: 'hsl(var(--verdeciti))',
-				brancociti: 'hsl(var(--brancociti))',
+				greenButton: 'hsl(var(--green-button))',
+				greenButtonHover: 'hsl(var(--green-button-hover))',
+				whiteButton: 'hsl(var(--white-button))',
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
     			card: {
