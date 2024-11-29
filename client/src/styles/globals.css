@@ -17,9 +17,10 @@
   }
   :root {
     --green-button: 136 75% 61%;
-    --green-button-hover: 136 75% 52%;
+    --green-button-hover: 136 72% 52%;
     --white-button: 0 0% 96%;
-    --background: 0 0% 100%;
+    --background-sidebar: 198 95% 66%;
+    --background: 0 0% 96%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -44,7 +45,6 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --background-sidebar: 198 95% 66%;
   }
   .dark {
     --background: 240 10% 3.9%;
