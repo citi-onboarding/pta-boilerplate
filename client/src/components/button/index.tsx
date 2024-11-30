@@ -19,14 +19,14 @@ export default function EnterMatchButton({ matchStatus = "availableMatch" }: But
 
     //Estabelecendo os parâmetros de default
     let buttonText = "Entrar";
-    let buttonStyle = "bg-buttonGreen hover:bg-green-700";
+    let buttonStyle = "bg-greenButton hover:bg-greenButtonHover";
     let customProps = "w-80 h-12 rounded-lg shadow-lg shadow-b";
 
     if (matchStatus === "closedMatch") {
-        buttonStyle = "bg-buttonGrey cursor-not-allowed";
+        buttonStyle = "bg-grayButton cursor-not-allowed";
     } else if (matchStatus === "inMatch") {
         buttonText = "Sair";
-        buttonStyle = "bg-buttonRed hover:bg-red-700";
+        buttonStyle = "bg-redButton hover:bg-red-700";
     }
 
     return (

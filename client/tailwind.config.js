@@ -23,9 +23,11 @@ module.exports = {
 				barlow: ['Barlow', 'sans-serif']
 			},
     		colors: {
-				buttonGrey: 'hsl(var(--button-grey))',
-				buttonRed: 'hsl(var(--button-red))',
-				buttonGreen: 'hsl(var(--button-green))',
+				grayButton: 'hsl(var(--gray-button))',
+				redButton: 'hsl(var(--red-button))',
+				greenButton: 'hsl(var(--green-button))',
+				greenButtonHover: 'hsl(var(--green-button-hover))',
+				whiteButton: 'hsl(var(--white-button))',
     			background: 'hsl(var(--background))',
 				backgroundSidebar: 'hsl(var(--background-sidebar))',
     			foreground: 'hsl(var(--foreground))',
