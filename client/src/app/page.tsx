@@ -1,4 +1,5 @@
 import Image from "next/image";
+import EnterMatchButton from "@/components/button";
 
 import { LogoCITi } from "../assets";
 
@@ -8,6 +9,7 @@ export default function Home() {
       <div>
         <Image src={LogoCITi} alt="Logo citi" />
       </div>
+      <EnterMatchButton matchStatus="inMatch" />
       <div className="flex flex-col justify-center items-center">
         <h1 className="text-black text-4xl font-bold">NextJS Boilerplate</h1>
         <p className="text-black text-xl">

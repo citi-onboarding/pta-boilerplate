@@ -16,7 +16,9 @@
     text-rendering: optimizeLegibility;
   }
   :root {
-    --verde: 136 75% 61%;
+    --button-green: 136 75% 61%;
+    --button-grey: 0 0% 87%;
+    --button-red: 354 81% 57%;
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;

@@ -3,33 +3,34 @@ import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 
 type ButtonProps = {
-    buttonColor?: "Green" | "Grey" | "Red";
+    matchStatus?: "availableMatch" | "inMatch" | "closedMatch";
 };
 
-export default function EnterMatchButton({ buttonColor = "Green" }: ButtonProps) {
+export default function EnterMatchButton({ matchStatus = "availableMatch" }: ButtonProps) {
+    //Controle de rotas
     const router = useRouter();
     const handleClick = () => {
-        if (buttonColor === "Green") {
-            router.push("/dashboard");//Quando o botão estiver ativo, no caso verde
+        if (matchStatus === "availableMatch") {
+            router.push("/dashboard");//Quando o botão estiver ativo, no caso button-green
         } else {
-            router.back(); //Quando o botão for vermelho, acredito qu volte pra a tela anterior.
+            router.push("/dashboard"); //Quando o botão for vermelho, acredito qu volte pra a tela anterior.
         }
     }
 
     //Estabelecendo os parâmetros de default
     let buttonText = "Entrar";
-    let buttonStyle = "bg-green-500 hover:bg-green-700";
+    let buttonStyle = "bg-buttonGreen hover:bg-green-700";
     let customProps = "w-80 h-12 rounded-lg shadow-lg shadow-b";
 
-    if (buttonColor === "Grey") {
-        buttonStyle = "bg-gray-300";
-    } else if (buttonColor === "Red") {
+    if (matchStatus === "closedMatch") {
+        buttonStyle = "bg-buttonGrey cursor-not-allowed";
+    } else if (matchStatus === "inMatch") {
         buttonText = "Sair";
-        buttonStyle = "bg-red-500 hover:bg-red-700";
+        buttonStyle = "bg-buttonRed hover:bg-red-700";
     }
 
     return (
-        <Button onClick={handleClick} className={`${buttonStyle} ${customProps}`} disabled={buttonColor === "Grey"}>
+        <Button onClick={handleClick} className={`${buttonStyle} ${customProps}`} disabled={matchStatus === "closedMatch"}>
             <span className="text-white font-bold text-xl font-barlow">{buttonText}</span>
         </Button>
     );
