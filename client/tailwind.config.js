@@ -25,9 +25,9 @@ module.exports = {
     		colors: {
 				grayButton: 'hsl(var(--gray-button))',
 				redButton: 'hsl(var(--red-button))',
+				redButtonHover: 'hsl(var(--red-button-hover))',
 				greenButton: 'hsl(var(--green-button))',
 				greenButtonHover: 'hsl(var(--green-button-hover))',
-				whiteButton: 'hsl(var(--white-button))',
     			background: 'hsl(var(--background))',
 				backgroundSidebar: 'hsl(var(--background-sidebar))',
     			foreground: 'hsl(var(--foreground))',
