@@ -1,3 +1,4 @@
+'use client';
 import {
   Card,
   CardContent,
@@ -5,35 +6,66 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 
+import { useRouter } from "next/navigation";
+import { UsersRound } from "lucide-react";
 
-import { UsersRound } from 'lucide-react';
+// Definição de tipo para as props
+interface MatchCardProps {
+  status: "full" | "joinable" | "closed" | "playing";
+}
 
-export default function MatchCard() {
+export default function MatchCard({ status }: MatchCardProps) {
+  const router = useRouter();
+
+  // Função para tratar clique
+  const handleClick = () => {
+    if (status === "joinable") {
+      router.push("/dashboard");
+    }
+  };
+
+  // Função para obter a classe CSS com base no status
+  const getStatusClass = () => {
+    switch (status) {
+      case "full":
+        return "bg-purple";
+      case "joinable":
+        return "bg-blue";
+      case "closed":
+        return "bg-gray";
+      case "playing":
+        return "bg-greenCard";
+      default:
+        return "bg-gray";
+    }
+  };
   return (
-
     <div className="flex items-center justify-center h-screen">
-      <Card className="shadow-gray-500 shadow bg-purple font-barlow border-none rounded-2xl text-darkGray">
-
+      <Card 
+        onClick={handleClick}
+        className={`shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
+      >
         <CardHeader className="space-y-2 p-4 pb-2">
-          <CardTitle className="text-darkGray font-medium text-sm">Minecraft</CardTitle>
-          <CardDescription className="font-light text-darkGray text-sm">Discord</CardDescription>
+          <CardTitle className="text-darkGray font-medium text-sm">
+            Minecraft
+          </CardTitle>
+          <CardDescription className="font-light text-darkGray text-sm">
+            Discord
+          </CardDescription>
         </CardHeader>
-
 
         <div className="flex gap-12 p-4 pt-0">
           <CardContent className="font-light p-0">
             <span className="text-darkGray flex text-sm">06/07/2023 | 19h</span>
           </CardContent>
 
-          <CardFooter className=" flex font-light gap-1 p-0">
+          <CardFooter className="flex font-light gap-1 p-0">
             <span className="font-light text-darkGray text-sm">05</span>
-            <UsersRound className="stroke-darkGray w-5"/>
+            <UsersRound className="stroke-darkGray w-5" />
           </CardFooter>
-        
         </div>
-
       </Card>
     </div>
   );

@@ -25,6 +25,7 @@ module.exports = {
 			},
 
     		colors: {
+				greenCard: 'hsl(var(--green-card))',
 				purple: 'hsl(var(--purple))',
 				darkGray: 'hsl(var(--dark-gray))',
 				blue: 'hsl(var(--blue))',
