@@ -28,15 +28,15 @@ export default function MatchCard({ status }: MatchCardProps) {
   const getStatusClass = () => {
     switch (status) {
       case "full":
-        return "bg-purple";
+        return "bg-purpleCard";
       case "joinable":
-        return "bg-blue";
+        return "bg-blueCard";
       case "closed":
-        return "bg-gray";
+        return "bg-grayCard";
       case "playing":
         return "bg-greenCard";
       default:
-        return "bg-gray";
+        return "bg-grayCard";
     }
   };
   return (
