@@ -19,7 +19,7 @@ module.exports = {
     			md: 'calc(var(--radius) - 2px)',
     			sm: 'calc(var(--radius) - 4px)'
     		},
-			fontFamily:{
+			fontFamily: {
 				barlow: ['Barlow', 'sans-serif']
 			},
     		colors: {
@@ -34,6 +34,7 @@ module.exports = {
 				greenButton: 'hsl(var(--green-button))',
 				greenButtonHover: 'hsl(var(--green-button-hover))',
     			background: 'hsl(var(--background))',
+				backgroundSidebar: 'hsl(var(--background-sidebar))',
     			foreground: 'hsl(var(--foreground))',
     			card: {
     				DEFAULT: 'hsl(var(--card))',
