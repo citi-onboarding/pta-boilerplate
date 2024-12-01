@@ -1,5 +1,3 @@
-import EnterMatchButton from "@/components/MatchButton";
-import { CreateButton } from "@/components/CreateButton";
 
 export default function Home() {
   return (
