@@ -20,16 +20,19 @@ module.exports = {
     			sm: 'calc(var(--radius) - 4px)'
     		},
 			fontFamily:{
-				barlow: ['Barlow']
-
+				barlow: ['Barlow', 'sans-serif']
 			},
-
     		colors: {
 				greenCard: 'hsl(var(--green-card))',
-				purple: 'hsl(var(--purple))',
-				darkGray: 'hsl(var(--dark-gray))',
-				blue: 'hsl(var(--blue))',
-				gray: 'hsl(var(--gray))',
+				purpleCard: 'hsl(var(--purple-card))',
+				darkGrayCard: 'hsl(var(--dark-gray-card))',
+				blueCard: 'hsl(var(--blue-card))',
+				grayCard: 'hsl(var(--gray-card))',
+				grayButton: 'hsl(var(--gray-button))',
+				redButton: 'hsl(var(--red-button))',
+				redButtonHover: 'hsl(var(--red-button-hover))',
+				greenButton: 'hsl(var(--green-button))',
+				greenButtonHover: 'hsl(var(--green-button-hover))',
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',
     			card: {

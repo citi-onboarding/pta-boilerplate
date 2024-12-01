@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Oswald:wght@200..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,7 +16,21 @@
     text-rendering: optimizeLegibility;
   }
   :root {
-    --background: 0 0% 100%;
+    /*created*/
+    --green-button: 136 75% 61%;
+    --green-button-hover: 136 72% 52%;
+    --gray-button: 0 0% 87%;
+    --red-button: 354 81% 57%;
+    --red-button-hover: 354 81% 50%;
+    --background: 0 0% 96%;
+    --background-sidebar: 198 95% 66%;
+    --purple-card: 257 84% 88%;
+    --dark-gray-card: 0 0% 16%;
+    --blue-card: 200 96% 91%;
+    --gray-card: 0 0% 87%;
+    --green-card:153 62% 89%;
+
+    /*already existed*/
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -41,11 +55,6 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --purple: 257 84% 88%;
-    --dark-gray: 0 0% 16%;
-    --blue: 200 96% 91%;
-    --gray: 0 0% 87%;
-    --green-card:153 62% 89%;
   }
   .dark {
     --background: 240 10% 3.9%;

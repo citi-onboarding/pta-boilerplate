@@ -1,13 +1,7 @@
 
-import MatchCard from "@/components/MatchCard";
-
 export default function Home() {
   return (
-    <div className="ml-8">
-      <MatchCard>
-      
-       
-      </MatchCard>
+    <div className="flex flex-col h-full w-full items-center bg-background">
     </div>
   );
 }
