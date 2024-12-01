@@ -21,9 +21,7 @@ export default function MatchCard({ status }: MatchCardProps) {
 
   // Função para tratar clique
   const handleClick = () => {
-    if (status === "joinable") {
-      router.push("/dashboard");
-    }
+     {router.push("/dashboard");}
   };
 
   // Função para obter a classe CSS com base no status
@@ -45,7 +43,7 @@ export default function MatchCard({ status }: MatchCardProps) {
     <div className="flex items-center justify-center h-screen">
       <Card 
         onClick={handleClick}
-        className={`shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
+        className={`cursor-pointer shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
       >
         <CardHeader className="space-y-2 p-4 pb-2">
           <CardTitle className="text-darkGray font-medium text-sm">
