@@ -40,10 +40,9 @@ export default function MatchCard({ status }: MatchCardProps) {
     }
   };
   return (
-    <div className="flex items-center justify-center h-screen">
       <Card 
         onClick={handleClick}
-        className={`cursor-pointer shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
+        className={`w-fit cursor-pointer shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
       >
         <CardHeader className="space-y-2 p-4 pb-2">
           <CardTitle className="text-darkGray font-medium text-sm">
@@ -65,6 +64,5 @@ export default function MatchCard({ status }: MatchCardProps) {
           </CardFooter>
         </div>
       </Card>
-    </div>
   );
 }

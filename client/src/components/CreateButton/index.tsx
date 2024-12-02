@@ -12,10 +12,8 @@ export function CreateButton() {
     };
 
     return (
-        <div className="flex items-center justify-center h-screen">
-            <Button onClick={handleClick} className=" hover:bg-greenButtonHover [&_svg]:size-10 flex items-center justify-center h-screen rounded-2xl h-15 px-0 py-0 p-2 bg-greenButton">
-                <Plus className="stroke-1 stroke-backgroud"/> 
-            </Button>
-        </div>
+        <Button onClick={handleClick} className=" self-end hover:bg-greenButtonHover [&_svg]:size-10 flex items-center justify-center h-screen rounded-2xl h-15 px-0 py-0 p-2 bg-greenButton">
+            <Plus className="stroke-1 stroke-backgroud"/> 
+        </Button>
     );
 }
