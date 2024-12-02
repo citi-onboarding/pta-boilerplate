@@ -1,6 +1,6 @@
 import { CreateButton } from "@/components/CreateButton";
 import MatchCard from "@/components/MatchCard";
-import Topbar from "@/components/Topbar";
+import Topbar from "@/components/topbar";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 
 export default function ExploreMatches() {

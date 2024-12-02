@@ -1,4 +1,3 @@
-import { Tag } from "lucide-react";
 import ExploreMatches from "./ExploreMatches";
 
 export default function Home() {
