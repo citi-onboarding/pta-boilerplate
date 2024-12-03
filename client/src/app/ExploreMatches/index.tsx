@@ -12,7 +12,7 @@ export default function ExploreMatches() {
             Próximas partidas
             </h1>
             <ScrollArea className="w-full h-fit rounded-md border-none p-0">
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-4">
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-4 p-1">
                 <MatchCard status={"closed"}/>
                 <MatchCard status={"full"}/>
                 <MatchCard status={"joinable"}/>
