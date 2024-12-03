@@ -1,4 +1,5 @@
-'use client';
+"use client";
+
 import {
   Card,
   CardContent,
@@ -7,24 +8,32 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import { useRouter } from "next/navigation";
 import { UsersRound } from "lucide-react";
 
-// Definição de tipo para as props
 interface MatchCardProps {
-  status: "full" | "joinable" | "closed" | "playing";
+  gameName: string;
+  description: string;
+  date: string;
+  time: string;
+  status: string;
+  participants: number;
 }
 
-export default function MatchCard({ status }: MatchCardProps) {
+export default function MatchCard({
+  gameName,
+  description,
+  date,
+  time,
+  status,
+  participants,
+}: MatchCardProps) {
   const router = useRouter();
 
-  // Função para tratar clique
   const handleClick = () => {
-     {router.push("/dashboard");}
+    router.push("/dashboard");
   };
 
-  // Função para obter a classe CSS com base no status
   const getStatusClass = () => {
     switch (status) {
       case "full":
@@ -39,30 +48,31 @@ export default function MatchCard({ status }: MatchCardProps) {
         return "bg-grayCard";
     }
   };
+
   return (
-      <Card 
-        onClick={handleClick}
-        className={`w-fit cursor-pointer shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
-      >
-        <CardHeader className="space-y-2 p-4 pb-2">
-          <CardTitle className="text-darkGray font-medium text-sm">
-            Minecraft
-          </CardTitle>
-          <CardDescription className="font-light text-darkGray text-sm">
-            Discord
-          </CardDescription>
-        </CardHeader>
+    <Card
+      onClick={handleClick}
+      className={`w-56 cursor-pointer shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
+    >
+      <CardHeader className="space-y-2 p-4 pb-2">
+        <CardTitle className="text-darkGray font-medium text-sm">{gameName}</CardTitle>
+        <CardDescription className="font-light text-darkGray text-sm">
+          {description}
+        </CardDescription>
+      </CardHeader>
 
-        <div className="flex gap-12 p-4 pt-0">
-          <CardContent className="font-light p-0">
-            <span className="text-darkGray flex text-sm">06/07/2023 | 19h</span>
-          </CardContent>
+      <div className="flex gap-12 p-4 pt-0">
+        <CardContent className="font-light p-0">
+          <span className="text-darkGray flex text-sm">
+            {date} | {time}
+          </span>
+        </CardContent>
 
-          <CardFooter className="flex font-light gap-1 p-0">
-            <span className="font-light text-darkGray text-sm">05</span>
-            <UsersRound className="stroke-darkGray w-5" />
-          </CardFooter>
-        </div>
-      </Card>
+        <CardFooter className="flex font-light gap-1 p-0 ml-auto">
+          <span className="font-light text-darkGray text-sm">{participants}</span>
+          <UsersRound className="stroke-darkGray w-5" />
+        </CardFooter>
+      </div>
+    </Card>
   );
 }

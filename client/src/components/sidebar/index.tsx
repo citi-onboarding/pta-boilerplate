@@ -11,7 +11,7 @@ export default function Sidebar() {
   const router = useRouter();
   
   return (
-    <div className="flex flex-col h-full items-center justify-between bg-backgroundSidebar w-64 p-6">
+    <div className="flex flex-col h-full items-center justify-between bg-backgroundSidebar w-72 p-6">
 
       <div className="flex flex-col items-center gap-4 py-7">
         <Image src={logoCITiWhite} alt="Logo" className="itens-center w-30 h-auto mb-4"/>
