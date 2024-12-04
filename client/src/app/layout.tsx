@@ -18,7 +18,9 @@ export default function RootLayout({
     <html>
       <body className="flex flex-row">
         <Sidebar/> 
-        {children}
+        <div className="w-full bg-background">
+          {children}
+        </div>
       </body>
     </html>
   );

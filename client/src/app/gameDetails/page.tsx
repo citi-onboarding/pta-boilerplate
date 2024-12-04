@@ -5,10 +5,10 @@ import { CircleUserRound } from "lucide-react";
 
 export default function gameDetails() {
   return (
-    <div className="w-full bg-background h-screen font-barlow">
+    <div className="h-screen font-barlow">
         <Topbar backArrow={true} />
         <div className="flex flex-row justify-center p-16 gap-16 h-[calc(100vh-64px)] overflow-y-scroll">
-          <div className="flex flex-col gap-3 p-6">
+          <div className="flex flex-col gap-3 p-6 h-fit w-full">
 
             {/* Cabeçalho */}
             <div className="flex flex-col gap-1">
@@ -46,7 +46,7 @@ export default function gameDetails() {
             </div>
           </div>
 
-            <div className="flex flex-col rounded-2xl p-7 gap-4 bg-white h-full shadow-lg">
+            <div className="flex flex-col w-fit rounded-2xl p-7 gap-4 bg-white max-h-max shadow-lg">
               <div className="flex flex-row justify-around gap-28">
                 <span className="text-2xl text-gray-800 ml-6 font-medium">Participantes</span>
                 <span className="text-2xl text-gray-800 font-medium">5/25</span>
