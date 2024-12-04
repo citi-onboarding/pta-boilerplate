@@ -1,3 +1,5 @@
+"use client";
+
 import { CreateButton } from "@/components/CreateButton";
 import MatchCard from "@/components/MatchCard";
 import Topbar from "@/components/topbar";
@@ -28,29 +30,35 @@ const matches = [
 
 export default function ExploreMatches() {
   return (
-    <div className="h-[100vh]">
+    <div className="h-screen">
       <Topbar backArrow={false} />
       <div className="flex flex-col p-12 h-[calc(100vh-64px)]">
         <h1 className="text-2xl text-black font-barlow font-normal mb-16">
           Próximas partidas
         </h1>
-        <ScrollArea className="w-full h-fit rounded-md border-none p-0">
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-4 p-1">
-            {matches.map((match, index) => (
-              <MatchCard
-                key={index}
-                gameName={match.gameName}
-                description={match.description}
-                date={match.date}
-                time={match.time}
-                status={match.status}
-                participants={match.participants}
-              />
-            ))}
-          </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-        <div className="flex justify-end mt-8">
+          {matches.length > 0 ? (
+            <ScrollArea className="w-full h-full rounded-md border-none p-0 mb-8">
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-4 p-1">
+                {matches.map((match, index) => (
+                  <MatchCard
+                    key={index}
+                    gameName={match.gameName}
+                    description={match.description}
+                    date={match.date}
+                    time={match.time}
+                    status={match.status}
+                    participants={match.participants}
+                  />
+                ))}
+              </div>
+              <ScrollBar orientation="horizontal" />
+            </ScrollArea>
+          ) : (
+            <div className="flex justify-center items-center h-full mb-16">
+              <span className="text-center font-barlow text-gray-800 text-2xl font-light">Sem partidas disponíveis</span>
+            </div>
+          )}
+        <div className="flex justify-end">
           <CreateButton />
         </div>
       </div>
