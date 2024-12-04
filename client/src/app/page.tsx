@@ -1,10 +1,7 @@
-import ExploreMatches from "./ExploreMatches";
+import ExploreMatches from "./ExploreMatches/page";
 
 export default function Home() {
   return (
-    <div>
       <ExploreMatches/>
-    </div>
   );
 }
-
