@@ -30,10 +30,6 @@ export default function MatchCard({
 }: MatchCardProps) {
   const router = useRouter();
 
-  const handleClick = () => {
-    router.push("/dashboard");
-  };
-
   const getStatusClass = () => {
     switch (status) {
       case "full":
@@ -51,7 +47,7 @@ export default function MatchCard({
 
   return (
     <Card
-      onClick={handleClick}
+      onClick={() => router.push("/GameDetails")}
       className={`w-56 cursor-pointer shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
     >
       <CardHeader className="space-y-2 p-4 pb-2">

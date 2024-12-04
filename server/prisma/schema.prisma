@@ -22,3 +22,17 @@ model Test {
   name String
   age  Int
 }
+
+model Match {
+  id              String      @id @default(uuid())
+  gameName        String
+  platform        String
+  date            DateTime
+  time            DateTime
+  maxParticipants Int
+  link            String
+  description     String
+  username        String
+  email           String
+  participants    String[]
+}
