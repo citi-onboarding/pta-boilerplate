@@ -47,7 +47,7 @@ export default function MatchCard({
 
   return (
     <Card
-      onClick={() => router.push("/GameDetails")}
+      onClick={() => router.push("/gameDetails")}
       className={`w-56 cursor-pointer shadow-gray-500 shadow font-barlow border-none rounded-2xl text-darkGray ${getStatusClass()}`}
     >
       <CardHeader className="space-y-2 p-4 pb-2">
