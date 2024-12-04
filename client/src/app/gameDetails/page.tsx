@@ -1,4 +1,4 @@
-import Topbar from "@/components/Topbar";
+import Topbar from "@/components/topbar";
 import MatchButton from "@/components/MatchButton";
 
 import { CircleUserRound } from "lucide-react";
