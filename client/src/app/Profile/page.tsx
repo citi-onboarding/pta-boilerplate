@@ -11,7 +11,8 @@ import { Input } from "../../components/ui/input"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover" 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious} from "@/components/ui/carousel"
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
+
 
 const matches = [
     {
@@ -194,15 +195,82 @@ export default function ProfilePage() {
                     <Input className="w-80 h-14 border-2 rounded px-5 bg-white text-gray-500 placeholder:text-lg" placeholder="lorem Ipsum" />
                     <Button onClick={handleSearch} className="w-28 h-12 bg-backgroundSidebar text-white font-medium text-lg rounded-2xl shadow-lg hover:bg-blue-500">Buscar</Button>
                 </div>
-
                 <Tabs defaultValue="1" className="w-full border-t-2 h-fit">
                     <TabsList className="gap-4 px-12">
                         <TabsTrigger value="1" className="px-9 py-2 text-lg bg-green-50 font-medium border-2 rounded-t-xl data-[state=active]:border-b-background -translate-y-[42px] rounded-b-none shadow-none focus:ring-0 focus:outline-none z-10">Partidas</TabsTrigger>
                         <TabsTrigger value="2" className="px-9 py-2 text-lg bg-green-50 font-medium border-2 rounded-t-xl data-[state=active]:border-b-0 -translate-y-[42px] rounded-b-none shadow-none focus:ring-0 focus:outline-none focus-visible:ring-0">Histórico</TabsTrigger>
                     </TabsList>
 
+{/* ----------------------------------------------Partidas-------------------------------------------------------*/}
                     <TabsContent value="1">
                         <div className="flex flex-col px-0">
+                            <div className="flex flex-row justify-between gap-4 ml-0">
+                                <span className="text-4xl font-medium text-gray-800 mb-8">Partidas Abertas</span>
+                                <div className="flex flex-row gap-4"> 
+
+                                    <Popover>
+                                        <PopoverTrigger asChild>
+                                            <Button  className={cn("flex flex-row gap-6 h-14 justify-around px-4 bg-white font-normal border-2 shadow-none [&_svg]:size-6",!date && "text-muted-foreground")}>
+                                            {date ? format(date, "dd/MM/yyyy") : <span>dd/mm/aaaa</span>}
+                                            <CalendarFold className="text-black stroke-black stroke-2" />
+                                            </Button>
+                                        </PopoverTrigger>
+                                        <PopoverContent className="w-auto p-0">
+                                            <Calendar
+                                            mode="single"
+                                            selected={date}
+                                            onSelect={setDate}
+                                            initialFocus
+                                            />
+                                        </PopoverContent>
+                                    </Popover>
+
+                                    <Popover>
+                                        <PopoverTrigger asChild>
+                                            <Button  className={cn("flex flex-row gap-6 h-14 justify-around px-4 bg-white font-normal border-2 shadow-none [&_svg]:size-6",!date && "text-muted-foreground")}>
+                                            {date ? format(date, "dd/MM/yyyy") : <span>dd/mm/aaaa</span>}
+                                            <CalendarFold className="text-black stroke-black stroke-2" />
+                                            </Button>
+                                        </PopoverTrigger>
+                                        <PopoverContent className="w-auto p-0">
+                                            <Calendar
+                                            mode="single"
+                                            selected={date}
+                                            onSelect={setDate}
+                                            initialFocus
+                                            />
+                                        </PopoverContent>
+                                    </Popover>
+
+                                </div>
+                            </div>
+                            <ScrollArea className="h-auto whitespace-nowrap rounded-md">
+                                    <div className="flex flex-row gap-4 w-96 py-2 px-1">
+                                    {matches.filter((match) => match.status === 'playing').length === 0 ? (
+                                        <div className="flex justify-center items-center">
+                                            <span className="font-medium text-2xl">Não há partidas</span>
+                                        </div>
+                                    ) : (
+                                        matches.filter((match) => match.status === 'closed').map((match, index) => (
+                                            <MatchCard
+                                                key={index}
+                                                gameName={match.gameName}
+                                                description={match.description}
+                                                date={match.date}
+                                                time={match.time}
+                                                status={match.status}
+                                                participants={match.participants}
+                                            />
+                                        ))
+                                    )}
+                                    </div>
+                            <ScrollBar orientation="horizontal" />
+                            </ScrollArea>
+                        </div>
+                    </TabsContent>
+{/* ----------------------------------------------Histórico-------------------------------------------------------*/}
+                    <TabsContent value="2">
+                    <div className="flex flex-col px-0">
                             <div className="flex flex-row justify-between gap-4 ml-0">
                                 <span className="text-4xl font-medium text-gray-800 mb-8">Histórico de Partidas</span>
                                 <div className="flex flex-row gap-4"> 
@@ -243,33 +311,30 @@ export default function ProfilePage() {
 
                                 </div>
                             </div>
-                            <Carousel className="ml-10 w-fit">
-                                <CarouselContent className="flex overflow-hidden">
-                                    {matches
-                                    .filter((match) => match.status === 'closed' || match.status === 'playing')
-                                    .map((match, index) => (
-                                        <CarouselItem
-                                        key={index} // Mova a key aqui
-                                        className="lg:basis-1/6 flex-none flex items-center justify-center w-40"
-                                        >
-                                        <MatchCard
-                                            gameName={match.gameName}
-                                            description={match.description}
-                                            date={match.date}
-                                            time={match.time}
-                                            status={match.status}
-                                            participants={match.participants}
-                                        />
-                                        </CarouselItem>
-                                    ))}
-                                    </CarouselContent>
-                                    <CarouselPrevious />
-                                    <CarouselNext />
-                                    </Carousel>
-
+                            <ScrollArea className="h-auto whitespace-nowrap rounded-md">
+                                    <div className="flex flex-row gap-4 w-96 py-2 px-1">
+                                    {matches.filter((match) => match.status === 'closed').length === 0 ? (
+                                        <div className="flex justify-center items-center">
+                                            <span className="font-medium text-2xl">Não há partidas</span>
+                                        </div>
+                                    ) : (
+                                        matches.filter((match) => match.status === 'closed').map((match, index) => (
+                                            <MatchCard
+                                                key={index}
+                                                gameName={match.gameName}
+                                                description={match.description}
+                                                date={match.date}
+                                                time={match.time}
+                                                status={match.status}
+                                                participants={match.participants}
+                                            />
+                                        ))
+                                    )}
+                                    </div>
+                            <ScrollBar orientation="horizontal" />
+                            </ScrollArea>
                         </div>
                     </TabsContent>
-                    <TabsContent value="2">Change your password here.</TabsContent>
                 </Tabs>
 
             </div>
