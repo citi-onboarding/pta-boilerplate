@@ -52,7 +52,7 @@ export default function ProfilePage() {
             <Topbar backArrow={false}/>
             <div className="flex flex-col justify-start p-10 h-[calc(100vh-64px)] overflow-y-scroll">
                 <span className="text-4xl font-medium text-gray-800 mb-8">  Qual o username? </span>
-                <div className="flex flex-row gap-5 items-center mb-36">
+                <div className="flex flex-row gap-5 items-center mb-28">
                     <input className="w-80 h-12 rounded-lg px-5 bg-white text-gray-500 border border-gray-300 placeholder:text-lg focus:outline-none focus:border-backgroundSidebar focus:bg-backgroundSidebar/20 hover:border-gray-400" placeholder="lorem Ipsum" />
                     <Button onClick={handleSearch} className="w-28 h-12 bg-backgroundSidebar text-white font-medium text-lg rounded-2xl shadow-lg hover:bg-[#1fb8f9]">Buscar</Button>
                 </div>
@@ -133,7 +133,7 @@ export default function ProfilePage() {
                                                 <span className="font-medium text-2xl">Não há partidas</span>
                                             </div>
                                         ) : (
-                                            matches.filter((match) => match.status === 'full' || 'joinable').map((match, index) => (
+                                            matches.filter((match) => match.status === 'full').map((match, index) => (
                                                 <MatchCard
                                                     key={index}
                                                     gameName={match.gameName}
