@@ -70,8 +70,8 @@ export default function ProfilePage() {
                                 <div className="flex flex-row gap-4"> 
 
                                     <Popover>
-                                        <PopoverTrigger asChild>
-                                            <Button  className={cn("flex flex-row gap-6 h-14 justify-around px-4 bg-white font-normal border-2 shadow-none [&_svg]:size-6",!date && "text-muted-foreground")}>
+                                        <PopoverTrigger asChild >
+                                            <Button  className={cn("flex flex-row gap-6 h-14 justify-around px-4 bg-white font-normal border-2 shadow-none [&_svg]:size-6",!date && "text-muted-foreground hover:bg-white hover:border-gray-400")}>
                                             {date ? format(date, "dd/MM/yyyy") : <span>dd/mm/aaaa</span>}
                                             <CalendarFold className="text-black stroke-black stroke-2" />
                                             </Button>
@@ -88,7 +88,7 @@ export default function ProfilePage() {
 
                                     <Popover>
                                         <PopoverTrigger asChild>
-                                            <Button  className={cn("flex flex-row gap-6 h-14 justify-around px-4 bg-white font-normal border-2 shadow-none [&_svg]:size-6",!date && "text-muted-foreground")}>
+                                            <Button  className={cn("flex flex-row gap-6 h-14 justify-around px-4 bg-white font-normal border-2 shadow-none [&_svg]:size-6",!date && "text-muted-foreground hover:bg-white hover:border-gray-400")}>
                                             {date ? format(date, "dd/MM/yyyy") : <span>dd/mm/aaaa</span>}
                                             <CalendarFold className="text-black stroke-black stroke-2" />
                                             </Button>
