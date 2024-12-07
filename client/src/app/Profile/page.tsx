@@ -1,6 +1,7 @@
 "use client"
 import Topbar from "@/components/topbar";
 import MatchCard from "@/components/MatchCard";
+import { CreateButton } from "@/components/CreateButton";
 
 import * as React from "react"
 import { cn } from "@/lib/utils"
@@ -244,14 +245,15 @@ export default function ProfilePage() {
 
                                 </div>
                             </div>
+
                             <ScrollArea className="h-auto whitespace-nowrap rounded-md">
                                     <div className="flex flex-row gap-4 w-96 py-2 px-1">
-                                    {matches.filter((match) => match.status === 'playing').length === 0 ? (
+                                    {matches.filter((match) => match.status === 'joinable').length === 0 ? (
                                         <div className="flex justify-center items-center">
                                             <span className="font-medium text-2xl">Não há partidas</span>
                                         </div>
                                     ) : (
-                                        matches.filter((match) => match.status === 'closed').map((match, index) => (
+                                        matches.filter((match) => match.status === 'joinable').map((match, index) => (
                                             <MatchCard
                                                 key={index}
                                                 gameName={match.gameName}
@@ -259,13 +261,34 @@ export default function ProfilePage() {
                                                 date={match.date}
                                                 time={match.time}
                                                 status={match.status}
-                                                participants={match.participants}
-                                            />
-                                        ))
-                                    )}
+                                                participants={match.participants}/>)))}
                                     </div>
-                            <ScrollBar orientation="horizontal" />
+                                <ScrollBar orientation="horizontal" />
                             </ScrollArea>
+                            <span className="text-4xl font-medium text-gray-800 mt-10 mb-8">Partidas Fechadas</span>
+                            <div className="flex flex-row w-96 gap-5">
+                              <ScrollArea className="h-auto whitespace-nowrap rounded-md">
+                                      <div className="flex flex-row gap-4 py-2 px-1">
+                                        {matches.filter((match) => match.status === 'full').length === 0 ? (
+                                            <div className="flex justify-center items-center">
+                                                <span className="font-medium text-2xl">Não há partidas</span>
+                                            </div>
+                                        ) : (
+                                            matches.filter((match) => match.status === 'full' || 'joinable').map((match, index) => (
+                                                <MatchCard
+                                                    key={index}
+                                                    gameName={match.gameName}
+                                                    description={match.description}
+                                                    date={match.date}
+                                                    time={match.time}
+                                                    status={match.status}
+                                                    participants={match.participants}/>)))}
+                                      </div>
+                                  <ScrollBar orientation="horizontal" />
+                              </ScrollArea>
+                              <CreateButton />
+                            </div>
+                          <div/>                 
                         </div>
                     </TabsContent>
 {/* ----------------------------------------------Histórico-------------------------------------------------------*/}
